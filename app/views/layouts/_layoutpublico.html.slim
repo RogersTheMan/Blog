@@ -1,0 +1,156 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[content="width=device-width, initial-scale=1.0" name="viewport"]
+    title
+      | ZenBlog Bootstrap Template - Index
+    meta[content="" name="description"]
+    meta[content="" name="keywords"]
+    link[href="/assets-publicos/img/favicon.png" rel="icon"]
+    link[href="/assets-publicos/img/apple-touch-icon.png" rel="apple-touch-icon"]
+    link[rel="preconnect" href="https://fonts.googleapis.com"]
+    link[rel="preconnect" href="https://fonts.gstatic.com" crossorigin]
+    link[href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"]
+    link[href="/assets-publicos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"]
+    link[href="/assets-publicos/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"]
+    link[href="/assets-publicos/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"]
+    link[href="/assets-publicos/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"]
+    link[href="/assets-publicos/vendor/aos/aos.css" rel="stylesheet"]
+    link[href="/assets-publicos/css/variables.css" rel="stylesheet"]
+    link[href="/assets-publicos/css/main.css" rel="stylesheet"]
+    style[type="text/css"]
+      | a:hover { background-color: transparent }
+      | .pagination a{color:black;float: left;padding: 8px 12px;text-decoration: none;margin:auto; border-radius:5px}
+      | .pagination a:hover{color:white;font-weight:bold; background-color:rgb(120 120 120)}
+      | .pagination span{color:black;float: left;padding: 8px 12px;text-decoration: none;margin:auto;}
+      | .pagination nav{margin:auto}
+      | .current {color:white !important;font-weight: bold; background-color:rgb(130 134 139); border-radius: 5px}
+  body
+    header#header.header.d-flex.align-items-center.fixed-top
+      .container-fluid.container-xl.d-flex.align-items-center.justify-content-between
+        a.logo.d-flex.align-items-center[href="/posts_publicos"]
+          h1
+            | ZenBlog
+        nav#navbar.navbar
+          ul
+            li
+              a[href="/posts_publicos"]
+                | Blog
+            li
+              a[href="/posts_publicos/#{@post_aleatorio.ids.first}"]
+                | Post Aleatório
+            li
+              a[href="/todos_posts"]
+                | Todos posts
+            li
+              a[href="/about"]
+                | Sobre
+            li
+              a[href="/contact"]
+                | Contato
+        .position-relative
+          a.mx-2[href="#"]
+            span.bi-facebook
+          a.mx-2[href="#"]
+            span.bi-twitter
+          a.mx-2[href="#"]
+            span.bi-instagram
+          a.mx-2.js-search-open[href="#"]
+            span.bi-search
+          i.bi.bi-list.mobile-nav-toggle
+          .search-form-wrap.js-search-form-wrap
+            = form_tag busca_post_path, method: :get, class: 'search-form' do
+              = text_field_tag :titulo, @titulo_a_buscar, class: "form-control", placeholder: "Busca"
+              = button_tag  type:"submit", style:"border:none" do 
+                .icon.bi-search
+              button.btn.js-search-close
+                span.bi-x
+    main#main
+      = yield
+    footer#footer.footer
+      .footer-content
+        .container
+          .row.g-5
+            .col-lg-5
+              h3.footer-heading
+                | Sobre ZenBlog
+              p
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?
+              p
+                a.footer-link-more[href="/about"]
+                  | Saiba mais
+            .col-6.col-lg-3
+              h3.footer-heading
+                | Navegação
+              ul.footer-links.list-unstyled
+                li
+                  a[href="/posts_publicos"]
+                    i.bi.bi-chevron-right
+                      |  Home
+                li
+                  a[href="/posts_publicos/#{@post_aleatorio.ids.first}"]
+                    i.bi.bi-chevron-right
+                      |  Post Aleatório
+                li
+                  a[href="/todos_posts"]
+                    i.bi.bi-chevron-right
+                      |  Todos posts
+                li
+                  a[href="/about"]
+                    i.bi.bi-chevron-right
+                      |  Sobre nós
+                li
+                  a[href="/contact"]
+                    i.bi.bi-chevron-right
+                      |  Contato
+            .col-6.col-lg-4
+              h3.footer-heading
+                | Posts Recentes
+              ul.footer-links.footer-blog-entry.list-unstyled
+                - @posts_recentes.each do |post|
+                  li.align-items-center.justify-content-center[style="border-bottom: 1px solid white"]
+                    a[href="posts_publicos/#{post.id}"]
+                      img.img-fluid[src="#{post.image_url}"]
+                    div
+                      .post-meta.d-block
+                        span[style="color: white; font-weight:600"]
+                          = post.created_at
+                      span
+                        a[href="posts_publicos/#{post.id}"]
+                          = post.titulo
+      .footer-legal
+        .container
+          .row.justify-content-between
+            .col-md-6.text-center.text-md-start.mb-3.mb-md-0
+              .copyright
+                |  © Copyright 
+                strong
+                  span
+                    | ZenBlog
+                | . All Rights Reserved 
+              .credits
+                |  Designed by 
+                a[href="https://bootstrapmade.com/"]
+                  | BootstrapMade
+            .col-md-6
+              .social-links.mb-3.mb-lg-0.text-center.text-md-end
+                a.twitter[href="#"]
+                  i.bi.bi-twitter
+                a.facebook[href="#"]
+                  i.bi.bi-facebook
+                a.instagram[href="#"]
+                  i.bi.bi-instagram
+                a.google-plus[href="#"]
+                  i.bi.bi-skype
+                a.linkedin[href="#"]
+                  i.bi.bi-linkedin
+    a.scroll-top.d-flex.align-items-center.justify-content-center[href="#"]
+      i.bi.bi-arrow-up-short
+    script[src="/assets-publicos/vendor/bootstrap/js/bootstrap.bundle.min.js"]
+    script[src="/assets-publicos/vendor/swiper/swiper-bundle.min.js"]
+    script[src="/assets-publicos/vendor/glightbox/js/glightbox.min.js"]
+    script[src="/assets-publicos/vendor/aos/aos.js"]
+    script[src="/assets-publicos/vendor/php-email-form/validate.js"]
+    script[src="/assets-publicos/js/main.js"]
+

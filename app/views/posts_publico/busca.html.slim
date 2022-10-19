@@ -1,0 +1,61 @@
+    main#main
+      section#search-result.search-result
+        .container
+          .row
+            .col-md-9
+              h3.category-title
+                | Resultado das buscas
+              - @posts_buscados.each do |post|
+                .d-md-flex.post-entry-2.small-img
+                  a.me-4.thumbnail[href="posts_publicos/#{post.id}"]
+                    img.img-fluid[src="#{post.image_url}" alt=""]
+                  div
+                    .post-meta
+                      span
+                        = post.created_at
+                    h3
+                      a[href="posts_publicos/#{post.id}"]
+                        = post.titulo
+                    p
+                      = post.try(:corpo).truncate_words(50).html_safe
+              div[style="border-top: 1px solid gray"]
+                = paginate @posts_buscados
+            .col-md-3
+              .aside-block
+                ul#pills-tab.nav.nav-pills.custom-tab-nav.mb-4[role="tablist"]
+                  li.nav-item[role="presentation"]
+                    button#pills-popular-tab.nav-link.active[data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true"]
+                      | Popular
+                  li.nav-item[role="presentation"]
+                    button#pills-latest-tab.nav-link[data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="false"]
+                      | Recentes
+                #pills-tabContent.tab-content
+                  #pills-popular.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="pills-popular-tab"]
+                    - @posts_famosos.each do |post|
+                      .post-entry-1.border-bottom
+                        .post-meta
+                          span
+                            = post.created_at
+                        h2.mb-2
+                          a[href="/posts_publicos/#{post.id}"]
+                            = post.titulo
+                        span.author.mb-3.d-block
+                          = post.corpo.truncate_words(20).html_safe
+                  #pills-latest.tab-pane.fade[role="tabpanel" aria-labelledby="pills-latest-tab"]
+                    - @posts_recentes.each do |post|
+                      .post-entry-1.border-bottom
+                        .post-meta
+                          span
+                            = post.created_at
+                        h2.mb-2
+                          a[href="/posts_publicos/#{post.id}"]
+                            = post.titulo
+                        span.author.mb-3.d-block
+                          = post.corpo.truncate_words(20).html_safe
+              .aside-block
+                h3.aside-title
+                  | Video
+                .video-post
+                  a.glightbox.link-video[href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
+                    span.bi-play-fill
+                    img.img-fluid[src="/assets-publicos/img/post-landscape-5.jpg" alt=""]

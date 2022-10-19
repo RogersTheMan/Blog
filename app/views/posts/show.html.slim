@@ -1,0 +1,18 @@
+.col
+    .card
+        .card-body
+            .align-items-center.mb-1
+                p 
+                    | Total de visitantes nesse post: 
+                    = @post.visit_counter
+                .align-items-center.justify-content-center
+                        h2
+                            | Post de 
+                            = @current_user.username
+                        .d-grid.align-items-center.justify-content-center
+                            h4.d-flex.align-items-center.justify-content-center = @post.titulo
+                            p.d-flex.justify-content-center = @post.corpo.html_safe
+                            = image_tag @post.image_url if @post.image
+            = link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary"
+            |                                
+            = link_to 'Back', posts_url, class: "btn btn-primary"

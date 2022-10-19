@@ -1,0 +1,20 @@
+- @post.errors.full_messages.each do |message|
+    .alert.alert-danger[role="alert"]
+        = message
+= form_for @post do |f|
+    .mb-1
+        .form-group
+            = f.label :titulo
+            = f.text_field :titulo, class:"form-control"
+    .mb-1
+        .form-group 
+            = f.label :corpo
+            = f.text_area :corpo, :class => "form-control tinymce", rows: 4
+    .mb-1 
+        .form-group 
+            = f.label :image
+            = f.file_field :image
+    = f.submit "Criar post" , class:"btn btn-primary m-1"
+    = link_to 'Back', posts_url, class: "btn btn-secondary"
+
+

@@ -1,0 +1,10 @@
+- if notice
+  .alert.alert-info.alert-dismissible.fade.show.m-1[role="alert"]
+    = notice
+      span[aria-hidden="true"]
+        | ×
+- if error
+  .alert.alert-danger.alert-dismissible.fade.show.m-1[role="alert"]
+    = error
+      span[aria-hidden="true"]
+        | ×

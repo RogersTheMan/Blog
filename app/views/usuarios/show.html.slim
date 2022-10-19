@@ -1,0 +1,17 @@
+p#notice = notice
+
+p
+  strong Username:
+  = @usuario.username
+
+p
+  strong Email:
+  = @usuario.email
+
+p
+  strong Password:
+  = @usuario.password
+
+=> link_to "Edit", edit_usuario_path(@usuario)
+'|
+=< link_to "Back", usuarios_path

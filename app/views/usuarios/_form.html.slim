@@ -1,0 +1,45 @@
+= form_for @usuario do |f|
+  == render 'shared/flashes'
+  - invalid = @usuario.errors[:username].any?
+  .form-group
+    .mb-1
+      = f.label :username, class:"form-label"
+      = f.text_field :username, class: "form-control #{'is-invalid' if invalid}", placeholder: "johndoe"
+      - if invalid
+        .invalid-feedback.d-block
+          - @usuario.errors[:username].each do |error|
+            = error
+            br
+  - invalid = @usuario.errors[:email].any?
+  .form-group
+    .mb-1
+      = f.label :email, class:"form-label"
+      = f.text_field :email, class: "form-control #{'is-invalid' if invalid}", placeholder: "john@example.com"
+      - if invalid
+        .invalid-feedback.d-block
+          - @usuario.errors[:email].each do |error|
+            = error
+            br
+  - invalid = @usuario.errors[:password].any?
+  .form-group
+    .mb-1
+      = f.label :password, class:"form-label"
+      .input-group.input-group-merge.form-password-toggle
+        = f.text_field :password, class: "form-control #{'is-invalid' if invalid}", placeholder: "*******"
+        span.input-group-text.cursor-pointer
+          i[data-feather="eye"]
+      - if invalid
+        .invalid-feedback.d-block
+          - @usuario.errors[:password].each do |error|
+            = error
+            br 
+  .mb-1
+    .form-check
+      input#register-privacy-policy.form-check-input[type="checkbox" tabindex="4"]
+      label.form-check-label[for="register-privacy-policy"]
+        | I agree to
+        a[href="#"]
+          |  privacy policy & terms
+  = f.submit "Sign up", :class => 'btn btn-primary w-100 waves-effect waves-float waves-light'
+
+      

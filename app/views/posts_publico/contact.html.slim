@@ -1,0 +1,50 @@
+      section#contact.contact.mb-5
+        .container[data-aos="fade-up"]
+          .row
+            .col-lg-12.text-center.mb-5
+              h1.page-title
+                | Contact us
+          .row.gy-4
+            .col-md-4
+              .info-item
+                i.bi.bi-geo-alt
+                h3
+                  | Address
+                address
+                  | A108 Adam Street, NY 535022, USA
+            .col-md-4
+              .info-item.info-item-borders
+                i.bi.bi-phone
+                h3
+                  | Phone Number
+                p
+                  a[href="tel:+155895548855"]
+                    | +1 5589 55488 55
+            .col-md-4
+              .info-item
+                i.bi.bi-envelope
+                h3
+                  | Email
+                p
+                  a[href="mailto:info@example.com"]
+                    | info@example.com
+          .form.mt-5
+            form.php-email-form[action="forms/contact.php" method="post" role="form"]
+              .row
+                .form-group.col-md-6
+                  input#name.form-control[type="text" name="name" placeholder="Your Name" required]
+                .form-group.col-md-6
+                  input#email.form-control[type="email" name="email" placeholder="Your Email" required]
+              .form-group
+                input#subject.form-control[type="text" name="subject" placeholder="Subject" required]
+              .form-group
+                textarea.form-control[name="message" rows="5" placeholder="Message" required]
+              .my-3
+                .loading
+                  | Loading
+                .error-message
+                .sent-message
+                  | Your message has been sent. Thank you!
+              .text-center
+                button[type="submit"]
+                  | Send Message
