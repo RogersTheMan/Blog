@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :usuarios
   resources :posts
+  resources :comentarios
   delete "logout", to: "login#destroy"
   get "posts" => "posts#index"
   get "pagina_inicial" => "pagina_inicial#index"
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get "/login", to: 'login#index'
   post "/login", to: 'login#create'
   resources :posts do
+    resources :comentarios
     member do
       post :hide
     end

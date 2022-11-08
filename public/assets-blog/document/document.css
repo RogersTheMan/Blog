@@ -1,0 +1,66 @@
+@charset "utf-8";
+/*
+Theme Name: Pcube Blog HTML Template.
+Author: PCUBE
+Version:1.0
+*/
+/*
+/*=============================================
+ =  Table of CSS
+ 	1. General code
+		1.1 Typography
+		1.2
+	2. Siderbar	
+	3. Document	
+=======================*/
+/*========================
+	1. General code
+==========================*/
+body,strong{font: 500 14px/20px 'Open Sans', sans-serif;font-size: ;overflow-x:hidden;color:#111;background: #fcfcfc;position: relative;}
+a,a:hover,a:focus{outline: none;text-decoration: none;transition: all 500ms ease;}
+a:hover,a:focus{color: #000;}
+/*----------------------
+	1.1. Typography
+------------------------------*/
+h1, h2, h3, h4, h5, h6 {color:#111;font-weight:500;font-family: 'Roboto', sans-serif;margin: 0 0 15px;}
+h1 {font-size: 55px;}
+h2 {font-size: 40px;}
+h3 {font-size: 32px;}
+h4 {font-size:24px;}
+h5 {font-size: 22px;}
+h6 {font-size: 20px;}
+
+/*========================
+	2. Sidebar
+==========================*/
+.sidebar{position: fixed;left: 0;top: 0;width: 300px;height: 100%;background: #000;}
+.sidebar .search{padding: 15px 15px 20px;background: #eb6161;}
+.sidebar h2{font: 600 14px/20px 'Roboto',sans-serif;color: #fff;text-align: center;padding-bottom: 0;margin-bottom: 0;}
+.sidebar h2 i{padding: 0 5px;}
+.sidebar input[type="search"]{padding: 5px 15px;background: #fff;border-radius: 30px;font: 500 13px 'Open Sans',sans-serif;color: #000;border: none;width: 100%;margin-top: 15px;}
+.sidebar input[type="search"]::-webkit-input-placeholder{opacity: 1;color: #000;}
+.sidebar input[type="search"]::-moz-placeholder{opacity: 1;color: #000;}
+.sidebar ul {padding: 0;}
+.sidebar ul li{display: block;padding: 15px 10px 0 15px;}
+.sidebar ul li.home{background: #d9d9d9;padding: 5px 10px;}
+.sidebar ul li.home a{color: #333;font: 600 14px/20px 'Roboto',sans-serif;text-transform: uppercase;}
+.sidebar ul li.home:hover{background: #ddd;}
+.sidebar ul li.home:hover a{color: #000;}
+.sidebar ul li a{font: 400 14px/14px 'Open Sans',sans-serif;color: #fff;text-transform: capitalize;display: block;cursor: pointer;}
+.sidebar ul li a:hover,.sidebar ul li a.active{color: #eb6161;}
+.sidebar ul li ul{display: none;}
+.sidebar ul li ul li a{font: 400 13px/13px 'Open Sans',sans-serif;color: #aaa;}
+/*========================
+	3. Document
+==========================*/
+.document{padding: 15px 100px 15px 400px;background: #f6f6f6;}
+.document h1{font: 700 20px/30px 'Montserrat',sans-serif;color: #000;text-transform: uppercase;letter-spacing: 1px;margin-top: 15px;}
+.document h2{font: 700 16px/30px 'Montserrat',sans-serif;color: #333;text-transform: capitalize;letter-spacing: 1px;}
+.document h3{font: 700 14px/30px 'Montserrat',sans-serif;color: #333;text-transform: capitalize;letter-spacing: 1px;}
+hr{width: 100%;height: 1px;background: #eee;margin: 30px 0;}
+.document .list{padding: 0;}
+.document .list li{display: block;}
+.document .code{padding: 5px;background: #fff;border: 1px solid #ccc;}
+.document code{white-space: pre;}
+#features ul li {list-style: outside none square;padding: 6px 0 5px;
+}

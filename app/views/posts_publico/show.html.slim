@@ -1,58 +1,62 @@
-
-
-      section.single-post-content
-        .container
-          .row
-            .col-md-9.post-content[data-aos="fade-up"]
-              .single-post
-                .post-meta
-                  span.date
-                    | Total de visitantes nesse post: 
-                    = @posts_publicos.visit_counter
-                  span
-                    |  | 
-                    = @posts_publicos.created_at
-                h1.mb-5
-                  = @posts_publicos.titulo
-                p
-                  = @posts_publicos.corpo.html_safe
-                img.img-fluid[src="#{@posts_publicos.image_url}" alt=""]
-            .col-md-3
-              .aside-block
-                ul#pills-tab.nav.nav-pills.custom-tab-nav.mb-4[role="tablist"]
-                  li.nav-item[role="presentation"]
-                    button#pills-popular-tab.nav-link.active[data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true"]
-                      | Popular
-                  li.nav-item[role="presentation"]
-                    button#pills-latest-tab.nav-link[data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="false"]
-                      | Recentes
-                #pills-tabContent.tab-content
-                  #pills-popular.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="pills-popular-tab"]
-                    - @posts_famosos.each do |post|
-                      .post-entry-1.border-bottom
-                        .post-meta
-                          span
-                            = post.created_at
-                        h2.mb-2
-                          a[href="/posts_publicos/#{post.id}"]
-                            = post.titulo
-                        span.author.mb-3.d-block
-                          = post.corpo.truncate_words(20).html_safe
-                  #pills-latest.tab-pane.fade[role="tabpanel" aria-labelledby="pills-latest-tab"]
-                    - @posts_recentes.each do |post|
-                      .post-entry-1.border-bottom
-                        .post-meta
-                          span
-                            = post.created_at
-                        h2.mb-2
-                          a[href="/posts_publicos/#{post.id}"]
-                            = post.titulo
-                        span.author.mb-3.d-block
-                          = post.corpo.truncate_words(20).html_safe
-              .aside-block
-                h3.aside-title
-                  | Video
-                .video-post
-                  a.glightbox.link-video[href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
-                    span.bi-play-fill
-                    img.img-fluid[src="/assets-publicos/img/post-landscape-5.jpg" alt=""]
+    =render "slide"
+    .blog.blog_two
+      .container
+        .row
+          .col-sm-12.col-md-8.col-lg-8.text-left
+            .commentview
+              .weekday
+                .excerpt_data
+                  a.border[href="javascript:void(0)"]
+                    img.img-responsive[src="#{@posts_publicos.try(:image_url)}" alt="blog"]
+                  article
+                    span
+                      | Total de visitantes nesse post: 
+                      = @posts_publicos.visit_counter
+                    span
+                      |  | 
+                      = @posts_publicos.created_at
+                    h6
+                      a[href="javascript:void(0)"]
+                        = @posts_publicos.titulo
+                    p
+                      = @posts_publicos.corpo.html_safe
+                    p.category_name
+                      i.fa.fa-briefcase
+                      | In 
+                      a[href="javascript:void(0)"]
+                        |  Business
+                    p.category_name
+                      i.fa.fa-user
+                      | By 
+                      a[href="javascript:void(0)"]
+                        |  Rodrigo
+                    ul.social
+                      li
+                        a[href="javascript:void(0)"]
+                          = @posts_publicos.created_at
+                      li
+                        a[href="#"]
+                          i.fa.fa-facebook
+                      li
+                        a[href="#"]
+                          i.fa.fa-twitter
+                      li
+                        a[href="#"]
+                          i.fa.fa-instagram
+                      li
+                        a[href="#"]
+                          i.fa.fa-pinterest-p
+                      li
+                        a[href="#"]
+                          i.fa.fa-linkedin
+                      li
+                        a[href="#"]
+                          i.fa.fa-google-plus
+              = render "comentarios/comentario"
+              = render "shared/flashes"
+            h6.margin
+                  i.fa.fa-comment
+                  |  Deixe um comentário
+            = render partial: "comentarios/form", locals: { comentario: @comentario, parent: nil }
+          = render "sidebar"
+                

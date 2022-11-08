@@ -1,0 +1,66 @@
+            .col-sm-12.col-md-4.col-lg-4.text-center
+              .rightblog
+                article
+                  .head
+                    h6
+                      | SOBRE
+                  img.aboutimg[src="/assets-blog/img/alucard.jpg" alt="blog"]
+                  p
+                    | Descubra um pouco mais sobre os criadores do blog
+                  a.button[href="/about"]
+                    | Ler mais
+                article
+                  .head
+                    h6
+                      | Nos siga
+                  ul.social
+                    li
+                      a[href="#" target="_blank"]
+                        i.fa.fa-facebook
+                    li
+                      a[href="#" target="_blank"]
+                        i.fa.fa-twitter
+                    li
+                      a[href="#" target="_blank"]
+                        i.fa.fa-instagram
+                    li
+                      a[href="#" target="_blank"]
+                        i.fa.fa-pinterest-p
+                    li
+                      a[href="#" target="_blank"]
+                        i.fa.fa-linkedin
+                article
+                  .head
+                    h6
+                      | Newsletter
+                  p
+                    | Sign up to receive the latest story
+                  input[type="email" placeholder="Your Email Address"]
+                  input.button[type="submit" value="SUBSCRIBE"]
+                article.blogpost
+                  .head
+                    h6
+                      | Posts Recentes
+                  - @posts_recentes.each do |post|
+                    .col-sm-12.col-lg-4.padded
+                      a[href="/posts_publicos/#{post.id}"]
+                        img.img-responsive[src="#{post.try(:image_url)}" alt="blog"]
+                    .col-sm-12.col-lg-8.text-left
+                      a[href="/posts_publicos/#{post.id}"]
+                        = post.titulo
+                      span
+                        a[href="javascript:void(0)"]
+                          | Business
+                      span
+                        = post.created_at
+                    hr
+                  .clearfix
+                .right.tag_cloud
+                  a.tagimg[href="javascript:void(0)"]
+                    img[src="http://themes.pcubelive.com/pcubeblog/images/a1.jpg" alt="blog"]
+                  .carousel-caption
+                    i.icofont.icofont-close-line
+                    h5
+                      | Inspiration & Lifestyle Category
+                    a.button[href="javascript:void(0)"]
+                      | More Infos

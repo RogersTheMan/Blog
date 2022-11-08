@@ -1,50 +1,41 @@
-      section#contact.contact.mb-5
-        .container[data-aos="fade-up"]
-          .row
-            .col-lg-12.text-center.mb-5
-              h1.page-title
-                | Contact us
-          .row.gy-4
-            .col-md-4
-              .info-item
-                i.bi.bi-geo-alt
-                h3
-                  | Address
-                address
-                  | A108 Adam Street, NY 535022, USA
-            .col-md-4
-              .info-item.info-item-borders
-                i.bi.bi-phone
-                h3
-                  | Phone Number
-                p
-                  a[href="tel:+155895548855"]
-                    | +1 5589 55488 55
-            .col-md-4
-              .info-item
-                i.bi.bi-envelope
-                h3
-                  | Email
-                p
-                  a[href="mailto:info@example.com"]
-                    | info@example.com
-          .form.mt-5
-            form.php-email-form[action="forms/contact.php" method="post" role="form"]
-              .row
-                .form-group.col-md-6
-                  input#name.form-control[type="text" name="name" placeholder="Your Name" required]
-                .form-group.col-md-6
-                  input#email.form-control[type="email" name="email" placeholder="Your Email" required]
-              .form-group
-                input#subject.form-control[type="text" name="subject" placeholder="Subject" required]
-              .form-group
-                textarea.form-control[name="message" rows="5" placeholder="Message" required]
-              .my-3
-                .loading
-                  | Loading
-                .error-message
-                .sent-message
-                  | Your message has been sent. Thank you!
-              .text-center
-                button[type="submit"]
-                  | Send Message
+    section.contact
+      .container
+        .row
+          .col-sm-12.col-lg-12.text-center
+            a.border
+              img[src="http://themes.pcubelive.com/pcubeblog/images/conimg.jpg" alt="contact"]
+            h5.text-center
+              | Contact Us
+            .col-sm-12.col-lg-8.col-lg-offset-2
+              .location
+                .col-xs-12.col-sm-4.col-lg-4
+                  i.icofont.icofont-headphone-alt
+                  h6
+                    | Phone:
+                  span
+                    | + 1(123)456 789
+                .col-xs-12.col-sm-4.col-lg-4
+                  i.icofont.icofont-social-google-map
+                  h6
+                    | Address:
+                  span
+                    | Abcd EfGHIJKL 
+                    br
+                    | GHIJKL
+                .col-xs-12.col-sm-4.col-lg-4
+                  i.icofont.icofont-email
+                  h6
+                    | E-mail:
+                  span
+                    | info@dummy.com
+              h6
+                | Drop your suggestion, comment or just say hello!
+              p
+                | I will be responding soon as possible.
+              form
+                input[type="text" placeholder="Your Name*"]
+                input[type="email" placeholder="Your Email*"]
+                input[type="text" placeholder="Subject"]
+                textarea[rows="5" placeholder="Your Message"]
+                input.button[type="submit" value="Send"]
+    iframe.maps[src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26370943.997356508!2d-113.70989540076339!3d36.21253639149964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1514891880822"]

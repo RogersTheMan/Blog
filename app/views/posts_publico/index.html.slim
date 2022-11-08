@@ -1,77 +1,51 @@
-      section#hero-slider.hero-slider
-        .container-md[data-aos="fade-in"]
+      =render "slide"
+      .blog.blog_two
+        .container-fluid
           .row
-            .col-12
-              .swiper.sliderFeaturedPosts
-                .swiper-wrapper
-                  - @posts_publicos_slide.each do |post|
-                    - if post.id != @post_publicos_principal.ids.first
-                      .swiper-slide
-                          .img-bg-inner[style="border-radius: 5px"]
-                            = link_to "", "posts_publicos/#{post.id}", class:"img-bg d-flex align-items-end", style:"background-image: url('#{post.try(:image_url)}');border-radius: 5px"
-                            h2
-                              = post.try(:titulo)
-                            p
-                              = post.try(:corpo).truncate_words(50).html_safe
-                .custom-swiper-button-next
-                  span.bi-chevron-right
-                .custom-swiper-button-prev
-                  span.bi-chevron-left
-                .swiper-pagination
-      section#posts.posts
-        .container[data-aos="fade-up"]
-          .row.g-5
-            .col-lg-5
-              .post-entry-1.lg
-                .mb-1
-                  h3 Post Principal
-                - @post_publicos_principal.each do |post|
-                  a[href="posts_publicos/#{post.id}"]
-                    img.img-fluid[src="#{post.image_url}" alt=""]
-                  .post-meta
-                    span
-                      = post.created_at
-                  h2
-                    a[href="posts_publicos/#{post.id}"]
-                      = post.titulo
-                  p.mb-4.d-block
-                      = post.corpo.truncate_words(50).html_safe
-                  .d-flex.align-items-center.author
-                    .photo
-                      img.img-fluid[src="/assets-publicos/img/person-1.jpg" alt=""]
-                    .name
-                      h3.m-0.p-0
-                        | Rodrigo
-              = button_to "Ver todos os posts", todos_posts_url, method: :get, class:"btn btn-primary"
-            .col-lg-7
-              h3 Posts Secundários
-              .row.g-5
-                .col-lg-7.border-start.custom-border
-                  - @post_publicos_barra.each do |post|
-                    - if post.id != @post_publicos_principal.ids.first
-                      .post-entry-1
+            .col-sm-12.col-md-8.col-lg-8.text-left
+              - @posts_publicos.each do |post|
+                .weekday
+                  .excerpt_data
+                    a.border[href="posts_publicos/#{post.id}"]
+                      img.img-responsive[src="#{post.try(:image_url)}" alt="blog" style="max-height: 600px"]
+                    article
+                      h6
                         a[href="posts_publicos/#{post.id}"]
-                          img.img-fluid[src="#{post.image_url}" alt=""]
-                        .post-meta
-                          span
-                            = post.created_at
-                        h2[style="border-bottom: solid 1px lightgray"]
-                          a[href="posts_publicos/#{post.id}"]
-                            = post.titulo
-                  = button_to "Mudar posts", posts_publicos_url,method: :get, class: "btn btn-secondary"
-                .col-lg-5
-                  .trending
-                    h3
-                      | Posts Famosos
-                    - @posts_famosos.each do |post|
-                      ul.trending-post
-                        li.align-items-center[style="margin:1rem; border-bottom: solid 1px black"]
-                          h3
-                            a[href="posts_publicos/#{post.id}"]
-                              |- 
-                              = post.titulo
-                          p
-                            = post.corpo.truncate_words(10).html_safe
+                          = post.titulo
+                      p.category_name
+                        i.fa.fa-briefcase
+                        | In 
+                        a[href="javascript:void(0)"]
+                          |  Business
+                      p.category_name
+                        i.fa.fa-user
+                        | By 
+                        a[href="javascript:void(0)"]
+                          |  Rodrigo
+                      ul.social
+                        li
+                          a[href="#" target="_blank"]
+                            i.fa.fa-facebook
+                        li
+                          a[href="#" target="_blank"]
+                            i.fa.fa-twitter
+                        li
+                          a[href="#" target="_blank"]
+                            i.fa.fa-instagram
+                        li
+                          a[href="#" target="_blank"]
+                            i.fa.fa-pinterest-p
+                        li
+                          a[href="#" target="_blank"]
+                            i.fa.fa-linkedin
+                        li
+                      p
+                        = post.try(:corpo).truncate_words(50).html_safe
+                      a.button[href="posts_publicos/#{post.id}"]
+                        | Ler mais
+              .pagination
+                = paginate @posts_publicos
+            = render "sidebar"
 
         
 

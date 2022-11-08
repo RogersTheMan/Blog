@@ -6,17 +6,19 @@ class PostsPublicoController < ApplicationController
     before_action :posts_famosos, only: %i[ show contact index about busca todos ]
     before_action :post_aleatorio, only: %i[ show contact index about busca todos ]
     before_action :todos_posts, only: %i[ show contact index about busca todos ]
+    before_action :posts_publicos_slide, only: %i[ show contact index about busca todos ]
+    before_action :posts_barra, only: %i[ show contact index about busca todos ]
 
     def index
-        @posts_publicos = Post.all
-        @posts_publicos_slide = Post.where(:id => random_ids(4))
-        @post_publicos_barra = Post.where(:id => random_ids(4))
+        @posts_publicos = Post.page(params[:page]).per(5)
         @post_publicos_principal = Post.order(visit_counter: :desc).limit(1)
     end
 
     def show
         @posts_publicos.visit_counter += 1
         @posts_publicos.save
+
+        @comentario = @posts_publicos.comentario.build
     end
     
     def todos
@@ -64,5 +66,13 @@ class PostsPublicoController < ApplicationController
 
     def todos_posts
         @todos_posts = Post.page(params[:page]).per(5)
+    end
+
+    def posts_publicos_slide
+        @posts_publicos_slide = Post.where(:id => random_ids(4))
+    end
+
+    def posts_barra
+        @posts_barra = Post.where(:id => random_ids(3))
     end
 end

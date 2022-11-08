@@ -1,156 +1,273 @@
-doctype html
+/ | <!doctype html> 
 html[lang="en"]
   head
-    meta[charset="utf-8"]
-    meta[content="width=device-width, initial-scale=1.0" name="viewport"]
+    meta[charset="UTF-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
+    meta[name="description" content=""]
+    meta[name="keywords" content=""]
+    meta[name="author" content=""]
+    meta[name="robots" content="noindex, nofollow"]
     title
-      | ZenBlog Bootstrap Template - Index
-    meta[content="" name="description"]
-    meta[content="" name="keywords"]
-    link[href="/assets-publicos/img/favicon.png" rel="icon"]
-    link[href="/assets-publicos/img/apple-touch-icon.png" rel="apple-touch-icon"]
-    link[rel="preconnect" href="https://fonts.googleapis.com"]
-    link[rel="preconnect" href="https://fonts.gstatic.com" crossorigin]
-    link[href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"]
-    link[href="/assets-publicos/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"]
-    link[href="/assets-publicos/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"]
-    link[href="/assets-publicos/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"]
-    link[href="/assets-publicos/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"]
-    link[href="/assets-publicos/vendor/aos/aos.css" rel="stylesheet"]
-    link[href="/assets-publicos/css/variables.css" rel="stylesheet"]
-    link[href="/assets-publicos/css/main.css" rel="stylesheet"]
+      | Travelling 
+    link[rel="icon" href="http://themes.pcubelive.com/pcubeblog/favicon.ico" type="image/x-icon"]
+    link[href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet"]
+    link[href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"]
+    link[href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet"]
+    link[href="http://themes.pcubelive.com/pcubeblog/css/bootstrap.min.css" rel="stylesheet" type="text/css"]
+    link[href="/assets-blog/fonts/font-awesome/font-awesome.css" rel="stylesheet" type="text/css"]
+    link[href="/assets-blog/fonts/icofont/icofont.css" rel="stylesheet" type="text/css"]
+    link[rel="stylesheet" href="http://themes.pcubelive.com/pcubeblog/css/owl.carousel.min.css" type="text/css"]
+    link[rel="stylesheet" href="http://themes.pcubelive.com/pcubeblog/css/owl.theme.default.min.css" type="text/css"]
+    link[rel="stylesheet" type="text/css" href="http://themes.pcubelive.com/pcubeblog/style.css"]
+    link[rel="stylesheet" type="text/css" title="lightred" href="http://themes.pcubelive.com/pcubeblog/style.css" data-default-color="true"]
+    link[rel="stylesheet" type="text/css" title="purple" href="http://themes.pcubelive.com/pcubeblog/purple.css"]
+    link[rel="stylesheet" type="text/css" title="lightpurple" href="http://themes.pcubelive.com/pcubeblog/lpurple.css"]
+    link[rel="stylesheet" type="text/css" title="lightsky" href="http://themes.pcubelive.com/pcubeblog/lightsky.css"]
+    link[rel="stylesheet" type="text/css" title="lightgreen" href="http://themes.pcubelive.com/pcubeblog/lightgreen.css"]
+    link[rel="stylesheet" type="text/css" title="lightyellow" href="http://themes.pcubelive.com/pcubeblog/lightyellow.css"]
+    link[rel="stylesheet" type="text/css" title="lightblue" href="http://themes.pcubelive.com/pcubeblog/lightblue.css"]
+    link[rel="stylesheet" type="text/css" title="turquoise" href="http://themes.pcubelive.com/pcubeblog/turquoise.css"]
+    link[rel="stylesheet" type="text/css" title="lightgray" href="http://themes.pcubelive.com/pcubeblog/lightgray.css"]
+    link[rel="stylesheet" type="text/css" title="lightorange" href="http://themes.pcubelive.com/pcubeblog/lightorange.css"]
     style[type="text/css"]
-      | a:hover { background-color: transparent }
-      | .pagination a{color:black;float: left;padding: 8px 12px;text-decoration: none;margin:auto; border-radius:5px}
-      | .pagination a:hover{color:white;font-weight:bold; background-color:rgb(120 120 120)}
-      | .pagination span{color:black;float: left;padding: 8px 12px;text-decoration: none;margin:auto;}
+      | .pagination a{padding: 8px 12px;text-decoration: none;margin:auto; border-radius:5px}
+      | .pagination a:hover{font-weight:bold;}
+      | .pagination span{padding: 8px 12px;text-decoration: none;margin:auto;}
       | .pagination nav{margin:auto}
-      | .current {color:white !important;font-weight: bold; background-color:rgb(130 134 139); border-radius: 5px}
-  body
-    header#header.header.d-flex.align-items-center.fixed-top
-      .container-fluid.container-xl.d-flex.align-items-center.justify-content-between
-        a.logo.d-flex.align-items-center[href="/posts_publicos"]
-          h1
-            | ZenBlog
-        nav#navbar.navbar
+      | .current {!important;font-weight: bold;; border-radius: 5px}
+  body.head_two[onload="loader()"]
+    #load
+      #loader
+        img[src="http://themes.pcubelive.com/pcubeblog/loader.gif" alt="loader"]
+    #main_div[style="display: none;"]
+      .switch-color
+        .icon
+          i.fa.fa-paint-brush.fa-2x[style="margin-top: 7px;"]
+        .box
           ul
             li
-              a[href="/posts_publicos"]
-                | Blog
+              a.colorstyle[href="#" data-switch-color="lightred" style="background-color:#eb6161;"]
             li
-              a[href="/posts_publicos/#{@post_aleatorio.ids.first}"]
-                | Post Aleatório
+              a.colorstyle[href="#" data-switch-color="purple" style="background-color:#3e3951;"]
             li
-              a[href="/todos_posts"]
-                | Todos posts
+              a.colorstyle[href="#" data-switch-color="lightpurple" style="background-color:#c562e0;"]
             li
-              a[href="/about"]
-                | Sobre
+              a.colorstyle[href="#" data-switch-color="lightsky" style="background-color:#32bbf6;"]
             li
-              a[href="/contact"]
-                | Contato
-        .position-relative
-          a.mx-2[href="#"]
-            span.bi-facebook
-          a.mx-2[href="#"]
-            span.bi-twitter
-          a.mx-2[href="#"]
-            span.bi-instagram
-          a.mx-2.js-search-open[href="#"]
-            span.bi-search
-          i.bi.bi-list.mobile-nav-toggle
-          .search-form-wrap.js-search-form-wrap
-            = form_tag busca_post_path, method: :get, class: 'search-form' do
-              = text_field_tag :titulo, @titulo_a_buscar, class: "form-control", placeholder: "Busca"
-              = button_tag  type:"submit", style:"border:none" do 
-                .icon.bi-search
-              button.btn.js-search-close
-                span.bi-x
-    main#main
-      = yield
-    footer#footer.footer
-      .footer-content
-        .container
-          .row.g-5
-            .col-lg-5
-              h3.footer-heading
-                | Sobre ZenBlog
-              p
-                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?
-              p
-                a.footer-link-more[href="/about"]
-                  | Saiba mais
-            .col-6.col-lg-3
-              h3.footer-heading
-                | Navegação
-              ul.footer-links.list-unstyled
-                li
+              a.colorstyle[href="#" data-switch-color="lightgreen" style="background-color:#b4df40;"]
+          ul
+            li
+              a.colorstyle[href="#" data-switch-color="lightyellow" style="background-color:#ffd015;"]
+            li
+              a.colorstyle[href="#" data-switch-color="lightblue" style="background-color:#2924ff;"]
+            li
+              a.colorstyle[href="#" data-switch-color="turquoise" style="background-color:#00e4d9;"]
+            li
+              a.colorstyle[href="#" data-switch-color="lightgray" style="background-color:#918f7a;"]
+            li
+              a.colorstyle[href="#" data-switch-color="lightorange" style="background-color:#ff781e;"]
+      header.header
+        .container-fluid
+          .row
+            .col-sm-12
+              .headtop
+                .col-sm-12.col-md-5.col-lg-4
+                  ul.social
+                    li
+                      a[href="https://facebook.com" target="_blank"]
+                        i.fa.fa-facebook
+                    li
+                      a[href="https://twitter.com" target="_blank"]
+                        i.fa.fa-twitter
+                    li
+                      a[href="https://pinterest.com" target="_blank"]
+                        i.fa.fa-pinterest-p
+                    li
+                      a[href="https://instagram.com" target="_blank"]
+                        i.fa.fa-instagram
+                    li
+                      a[href="https://youtube.com" target="_blank"]
+                        i.fa.fa-youtube-play
+                    li
+                      a[href="https://linkedin.com" target="_blank"]
+                        i.fa.fa-linkedin
+                .col-sm-12.col-md-3.col-lg-4.text-center
                   a[href="/posts_publicos"]
-                    i.bi.bi-chevron-right
-                      |  Home
-                li
-                  a[href="/posts_publicos/#{@post_aleatorio.ids.first}"]
-                    i.bi.bi-chevron-right
-                      |  Post Aleatório
-                li
-                  a[href="/todos_posts"]
-                    i.bi.bi-chevron-right
-                      |  Todos posts
-                li
-                  a[href="/about"]
-                    i.bi.bi-chevron-right
-                      |  Sobre nós
-                li
-                  a[href="/contact"]
-                    i.bi.bi-chevron-right
-                      |  Contato
-            .col-6.col-lg-4
-              h3.footer-heading
-                | Posts Recentes
-              ul.footer-links.footer-blog-entry.list-unstyled
-                - @posts_recentes.each do |post|
-                  li.align-items-center.justify-content-center[style="border-bottom: 1px solid white"]
-                    a[href="posts_publicos/#{post.id}"]
-                      img.img-fluid[src="#{post.image_url}"]
-                    div
-                      .post-meta.d-block
-                        span[style="color: white; font-weight:600"]
-                          = post.created_at
-                      span
-                        a[href="posts_publicos/#{post.id}"]
-                          = post.titulo
-      .footer-legal
-        .container
-          .row.justify-content-between
-            .col-md-6.text-center.text-md-start.mb-3.mb-md-0
-              .copyright
-                |  © Copyright 
-                strong
+                    img[src="http://themes.pcubelive.com/pcubeblog/images/logo.png" alt="logo"]
+                .col-sm-12.col-md-4.col-lg-4.text-right
+                  a.sub[href="#newsletter" data-toggle="modal" title="Subscribe"]
+                    i.fa.fa-envelope
+                    | Email Subscribe
+              .menu
+                a.baricon
                   span
-                    | ZenBlog
-                | . All Rights Reserved 
-              .credits
-                |  Designed by 
-                a[href="https://bootstrapmade.com/"]
-                  | BootstrapMade
-            .col-md-6
-              .social-links.mb-3.mb-lg-0.text-center.text-md-end
-                a.twitter[href="#"]
-                  i.bi.bi-twitter
-                a.facebook[href="#"]
-                  i.bi.bi-facebook
-                a.instagram[href="#"]
-                  i.bi.bi-instagram
-                a.google-plus[href="#"]
-                  i.bi.bi-skype
-                a.linkedin[href="#"]
-                  i.bi.bi-linkedin
-    a.scroll-top.d-flex.align-items-center.justify-content-center[href="#"]
-      i.bi.bi-arrow-up-short
-    script[src="/assets-publicos/vendor/bootstrap/js/bootstrap.bundle.min.js"]
-    script[src="/assets-publicos/vendor/swiper/swiper-bundle.min.js"]
-    script[src="/assets-publicos/vendor/glightbox/js/glightbox.min.js"]
-    script[src="/assets-publicos/vendor/aos/aos.js"]
-    script[src="/assets-publicos/vendor/php-email-form/validate.js"]
-    script[src="/assets-publicos/js/main.js"]
-
+                    | Menu
+                  i.fa.fa-bars
+                ul
+                  li
+                    a[title="Side Menu" href="javascript:void(0);"]
+                      i.fa.fa-bars.menuclick
+                  li
+                    a[title="Home" href="/posts_publicos"]
+                      | Home
+                  li
+                    a[title="About" href="/about"]
+                      | Sobre
+                  li
+                    a[title="Contact" href="/posts_publicos/#{@post_aleatorio.first.id}"]
+                      | Post aleatorio
+                  li
+                    a[title="Contact" href="/contact"]
+                      | Contato           
+                  li
+                    = form_tag busca_post_path, method: :get, class: 'search-form' do
+                      .form-group[style="display:flex"]
+                        = text_field_tag :titulo, @titulo_a_buscar, placeholder: "Busca"
+                        = button_to "Buscar", nil
+      aside.sidebar
+        a[href="http://themes.pcubelive.com/pcubeblog/index.html"]
+          img[src="http://themes.pcubelive.com/pcubeblog/images/logo.png" alt="logo"]
+        a.close
+          i.icofont.icofont-close-line
+        ul
+          li
+            a[title="Home" href="/posts_publicos"]
+              | Home
+          li
+            a[title="About" href="/about"]
+              | Sobre
+          li
+            a[title="Contact" href="/contact"]
+              | Contato  
+          li
+            a[title="Post Aleatório" href="/posts_publicos/#{@post_aleatorio.first.id}"]
+              | Post aleatorio
+        .tag_cloud[style="margin-top:1rem"]
+          a.tagimg[href="#"]
+            img[alt="blog" src="http://themes.pcubelive.com/pcubeblog/images/a1.jpg"]
+          .carousel-caption
+            i.icofont.icofont-close-line
+            h5
+              | Inspiration & Lifestyle Category
+            a.button[href="#"]
+              | More Info
+      = yield
+      section.articles
+        .container-fluid
+          .row
+            .col-sm-12.text-center
+              h6
+                i.fa.fa-newspaper-o
+                | Posts mais famosos
+          .row
+            .col-sm-12
+              .owl-carousel.artslide
+                - @posts_famosos.each do |post|
+                  .item
+                    .weekday
+                      .excerpt_data
+                        a.border[href="/posts_publicos/#{post.id}"]
+                          img.img-responsive[alt="blog" src="#{post.try(:image_url)}" style="max-height: 150px"]
+                        p.category_name
+                          | In 
+                          a[href="#"]
+                            |  Business
+                        h6
+                          a[href="/posts_publicos/#{post.id}"]
+                            = post.titulo
+                        p
+                          = post.try(:corpo).truncate_words(10).html_safe
+                        p.category_name
+                          = post.created_at 
+                           | By 
+                          a[href="#"]
+                            |  Rodrigo
+                        a.button[href="/posts_publicos/#{post.id}"]
+                          | Ler mais
+      .insta
+        .container-fluid
+          .row
+            .col-sm-12.text-center
+              h6
+                i.fa.fa-instagram
+                | Nos Siga no Instagram
+        .owl-carousel.instaslide
+          a.item[href="#" target="_blank"]
+            img[src="http://themes.pcubelive.com/pcubeblog/images/ti1.jpg" alt="blog"]
+          a.item[href="#" target="_blank"]
+            img[src="http://themes.pcubelive.com/pcubeblog/images/ti2.jpg" alt="blog"]
+          a.item[href="#" target="_blank"]
+            img[src="http://themes.pcubelive.com/pcubeblog/images/ti3.jpg" alt="blog"]
+          a.item[href="#" target="_blank"]
+            img[src="http://themes.pcubelive.com/pcubeblog/images/ti4.jpg" alt="blog"]
+          a.item[href="#" target="_blank"]
+            img[src="http://themes.pcubelive.com/pcubeblog/images/ti5.jpg" alt="blog"]
+          a.item[href="#" target="_blank"]
+            img[src="/assets-blog/img/alucard.jpg" alt="blog" style="height: 358px"]
+      footer.footer
+        .container-fluid
+          .row
+            .col-sm-12.text-center
+              a[href="http://themes.pcubelive.com/pcubeblog/index.html" title="Blog Site Template"]
+                img[src="http://themes.pcubelive.com/pcubeblog/images/footlogo.png" alt="Logo"]
+              ul.social
+                li
+                  a[href="https://facebook.com" target="_blank"]
+                    i.fa.fa-facebook
+                li
+                  a[href="https://twitter.com" target="_blank"]
+                    i.fa.fa-twitter
+                li
+                  a[href="https://pinterest.com" target="_blank"]
+                    i.fa.fa-pinterest-p
+                li
+                  a[href="https://instagram.com" target="_blank"]
+                    i.fa.fa-instagram
+                li
+                  a[href="https://youtube.com" target="_blank"]
+                    i.fa.fa-youtube-play
+                li
+                  a[href="https://linkedin.com" target="_blank"]
+              ul.fmenu
+                li
+                  a[title="Home" href="/posts_publicos"]
+                    | Home
+                li
+                  a[title="About" href="/about"]
+                    | Sobre
+                li
+                  a[title="Contact" href="/contact"]
+                    | Contato  
+                li
+                  a[title="Post Aleatório" href="/posts_publicos/#{@post_aleatorio.first.id}"]
+                    | Post aleatorio
+      .copyright
+        .container-fluid
+          .row
+            .col-sm-12.text-center
+              p
+                | Copyright © 2018 Pcube Blog Theme
+      #newsletter.modal.fade
+        .modal-dialog
+          .modal-content
+            .modal-header
+              h5.modal-title
+                | Join Our Newsletter
+              p
+                | Sign up today for free and be the first to get notified of
+                br
+                |  new updates
+            .modal-body
+              input[type="email" placeholder="Email Address"]
+              input.button[type="submit" value="Subscribe Now"]
+            button.close[type="button" title="close" data-dismiss="modal" aria-label="Close"]
+              span[aria-hidden="true"]
+                | ×
+      .overlay
+      a.scrollup[data-toggle="tooltip" data-placement="top" href="javascript:void(0)" title="Scroll Top"]
+        i.fa.fa-angle-up
+      script[src="http://themes.pcubelive.com/pcubeblog/js/jquery-3.2.1.min.js"]
+      script[src="http://themes.pcubelive.com/pcubeblog/js/bootstrap.min.js"]
+      script[src="http://themes.pcubelive.com/pcubeblog/js/owl.carousel.min.js"]
+      script[src="http://themes.pcubelive.com/pcubeblog/js/main.js"]
+      script[src="http://themes.pcubelive.com/pcubeblog/js/switch-color.js"]

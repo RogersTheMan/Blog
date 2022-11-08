@@ -1,0 +1,14 @@
+        section.slider.homesecond
+          .container-fluid
+            .row
+              .mainslide.owl-carousel.col-sm-12
+                - @posts_publicos_slide.each do |post|
+                    .item
+                      a[href="posts_publicos/#{post.id}"]
+                        img[src="#{post.try(:image_url)}" alt="slide3" style="max-height: 850px"]
+                      .carousel-caption
+                        a[href="posts_publicos/#{post.id}"]
+                          h5
+                            = post.try(:titulo)
+                        p
+                          = post.created_at      

@@ -1,0 +1,70 @@
+              
+                    
+                    
+              .leave
+                .commentbox
+                  h6.margin
+                    = @posts_publicos.comentario.size - 1
+                    |  Comentários
+                  - @posts_publicos.comentario.where(parent_id: nil).each do |comentario|
+                     - unless !comentario.persisted? 
+                        ul.comment-list
+                          li
+                            img[src="http://themes.pcubelive.com/pcubeblog/images/co1.jpg" alt="comment"]
+                            .data
+                              h6
+                                = comentario.nome
+                              p
+                                = comentario.mensagem.html_safe
+                            span
+                              = link_to "Responder", "#", class: "reply-form-display"
+                              .reply-form[style="display:none"]  
+                                = render partial: "comentarios/form", locals: {post: comentario.post, parent: comentario.id}
+                              |  | 
+                              = link_to "Ver #{comentario.replies.size} respostas", "#", class: "mostra-respostas"
+                              - if comentario.replies.any?
+                              .mostra-resposta[style="display:none"]
+                                ul.comment-list
+                                  li[style="border-top: 1px solid lightgray"]
+                                    h6
+                                      | Resposta para o comentario do 
+                                      = comentario.nome
+                                    - comentario.replies.each do |reply|
+                                      .resposta[style="padding: 20px"]
+                                        img[src="http://themes.pcubelive.com/pcubeblog/images/co1.jpg" alt="comment" style="width:50px"]
+                                        .data
+                                          h6
+                                            = reply.nome
+                                          p
+                                            = reply.mensagem
+                                        span
+                                          = link_to "Responder", "#", class: "reply-form-display"  
+                                          .reply-form[style="display:none"]  
+                                            = render partial: "comentarios/form", locals: {post: comentario.post, parent: comentario.id}      
+                        javascript: 
+                          document.querySelectorAll(".reply-form-display").forEach((el) => {
+                              mostra = false
+                              el.addEventListener("click", (ev) => {
+                                ev.preventDefault();
+                                if(mostra == false){
+                                  el.nextElementSibling.style = "display : block;"
+                                  mostra = true
+                                } else{
+                                  el.nextElementSibling.style = "display : none;" 
+                                  mostra = false
+                                }
+                              })
+                          })
+                          document.querySelectorAll(".mostra-respostas").forEach((el) => {
+                              mostra = false
+                              el.addEventListener("click", (ev) => {
+                                ev.preventDefault();
+                                if(mostra == false){
+                                  el.nextElementSibling.style = "display : block;"
+                                  mostra = true
+                                } else{
+                                  el.nextElementSibling.style = "display : none;" 
+                                  mostra = false
+                                }
+                              })
+                          })

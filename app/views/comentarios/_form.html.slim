@@ -1,0 +1,12 @@
+
+                    = form_for ([@posts_publicos, @posts_publicos.comentario.build]) do |f|
+                      - if !parent.nil?
+                        = f.hidden_field :parent_id, name: "comentario[parent_id]", value: "#{parent}"
+                      div
+                        = f.label :nome
+                        = f.text_field :nome, class:"form-control", id: "comment-name", placeholder: "Escreve seu nome"
+                      div
+                        = f.label :mensagem
+                        = f.text_area :mensagem, placeholder: "Escreva seu comentário", class:"form-control", id: "comment-message",cols:"30", rows:"10"
+                      div
+                        = f.submit "Postar comentário" , class:"btn btn-primary"
